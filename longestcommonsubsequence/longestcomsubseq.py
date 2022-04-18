@@ -1,0 +1,19 @@
+#given two string find the length of longest common subsequence between the string
+
+def longestCommonSubsequence(text1: str, text2: str) -> int:
+
+    dp = [[0 for j in range(len(text2) + 1)] for i in range(len(text1) + 1)]
+
+    # following the bottom up dp approach iterating through the array in reverse order
+
+    for i in range(len(text1) - 1, -1, -1):
+        for j in range(len(text2) - 1, -1, -1):
+            if text1[i] == text2[j]:
+                dp[i][j] = 1 + dp[i+1][j+1]
+            else:
+                dp[i][j] = max(dp[i+1][j], dp[i][j+1])
+    return dp[0][0]
+
+text1 = "ajfdghdjghrej"
+text2 = "ery"
+print(longestCommonSubsequence(text1, text2))

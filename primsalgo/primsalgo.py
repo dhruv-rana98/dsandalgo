@@ -24,7 +24,7 @@ def minCostConnectPoints(points):
 
     while len(visit) < N: #termination statement to stop the loop when all the nodes are visited
         cost, i = heapq.heappop(minH)
-        if i in visit:
+        if i in visit:  
             continue #skip the remaining part of the loop if node already visited  
         res += cost
         visit.add(i)
